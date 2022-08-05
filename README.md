@@ -1,12 +1,12 @@
-# Installing Libre Technologies Platform on Ubuntu 22.04
+# ⚙️ Setting up the Libre Technologies Platform on Ubuntu 22.04
 
 This repository will allow you to spin up the Libre Technologies Platform on Ubuntu 22.04 local machine or development server.
 
 >To successfully install the platform, please follow the steps below.
 ## 📒 Table of Contents
 - [Step 1 - Installing Docker](#Step1)
-- [Step 2 - Installing Docker](#Step2)
-- [Step 3 - Installing Docker](#Step3)
+- [Step 2 - Installing Docker Compose](#Step2)
+- [Step 3 - Installing the Libre Technologies Platform](#Step3)
 - [Demo](#demo)
 
 <span id="Step1"></span>
@@ -84,7 +84,7 @@ The new Compose V2, which supports the compose command as part of the Docker CLI
 Compose V2 integrates compose functions into the Docker platform, continuing to support most of the previous docker-compose features and flags. You can run Compose V2 by replacing the hyphen (-) with a space, using docker compose, instead of docker-compose.
 ```
 <span id="Step3"></span>
-### 🪜 Step 3 - Installing the Libre Technologies Platform
+## 🪜 Step 3 - Installing the Libre Technologies Platform
 - **First, clone this repository to your preferred location:** :
 ```sh
 git clone https://github.com/amine-amaach/LibreOnUbuntu.git && cd LibreOnUbuntu
