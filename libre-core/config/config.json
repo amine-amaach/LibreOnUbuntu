@@ -1,0 +1,125 @@
+{
+  "libreLogger" : {
+    "defaultLevel": "DEBUG",
+    "defaultDestination": "CONSOLE",
+    "loggers": [
+      {"MAIN": {"topic":"MAIN"}},
+      {"server": {"topic":"SERVER"}},
+      {"Influxdb" : {"topic": "Influxdb", "level": "ERROR"}},
+      {"edgeConnectorMQTT" : {"topic": "EDGE_CON", "level": "INFO"}},
+      {"edgeClient": {"topic":"EDGE_CLI", "level": "INFO"}},
+      {"PubSubMQTT" : {"topic": "PubSubMQTT"}},
+      {"PlcConnectorMQTT" : {"topic": "PLCMQTT"}},
+      {"graphQLTrans" : {"topic": "GQLTRANS"}},
+      {"DATAGQL": {"topic":"DATAGQL"}},
+      {"EQFINDR": {"topic":"EQFINDR"}},
+      {"EQCACHE": {"topic":"EQCACHE"}},
+      {"calendarService": {"topic": "CALENDAR", "level": "INFO"}},
+      {"ConfigSubscriber": {"topic":"CONFIG_SUB", "level": "INFO"}},
+      {"EdgeSubscriber": {"topic":"EDGE_SUB", "level": "INFO"}},
+      {"EquipmentHandler": {"topic":"EQHDLR", "level": "INFO"}},
+      {"PublishToHistorianHandler": {"topic":"PHHDLR", "level": "ERROR"}},
+      {"libreCore": {"topic":"CORE", "level": "DEBUG"}},
+      {"OperationsRequestHandler": {"topic":"OpsReqHdlr", "level": "DEBUG"}},
+      {"cacheConnectorMQTT": {"topic":"cacheConnMQTT", "level": "DEBUG"}},
+      {"": {"topic":"BLANK", "level": "INFO"}},
+      {"DEFAULT": {"topic":"DEFAULT", "level": "DEBUG"}},
+      {"MachineStateHandler": {"topic": "EVENTLOG", "level": "DEBUG"}}
+    ]
+  },
+  "libreDataStoreGraphQL" : {
+    "GRAPHQL_URL": "http://alpha:8080/graphql",
+    "LIBRE_DQL_URL": "dgraph-dgraph-alpha:9080"
+  },
+  "pubSubConnectorMQTT" : {
+    "MQTT_SERVER":   "mqtt://mqtt:1883",
+    "MQTT_USER":     "admin",
+    "MQTT_PWD":      "public",
+    "MQTT_SVC_NAME": "CoreServicePubSubConnector"
+  },
+  "workflowEventsSubscriberMQTT" : {
+    "MQTT_SERVER":   "mqtt://mqtt:1883",
+    "MQTT_USER":     "admin",
+    "MQTT_PWD":      "public",
+    "MQTT_SVC_NAME": "CoreServiceWorkflowEventConnector"
+  },
+  "workflowCommandsSubscriberMQTT" : {
+    "MQTT_SERVER":   "mqtt://mqtt:1883",
+    "MQTT_USER":     "admin",
+    "MQTT_PWD":      "public",
+    "MQTT_SVC_NAME": "CoreServiceWorkflowCommandConnector"
+  },
+  "edgeConnectorMQTT" : {
+    "MQTT_SERVER":   "mqtt://mqtt:1883",
+    "MQTT_USER":     "admin",
+    "MQTT_PWD":      "public",
+    "MQTT_SVC_NAME": "CoreServiceEdgeConnector",
+    "TOPIC_TEMPLATE": "<EQNAME>/<CATEGORY>/<TAGNAME>",
+    "TAG_DATA_CATEGORY": "EdgeTagChange",
+    "EVENT_CATEGORY": "EdgeEvent"
+  },
+  "cacheConnectorMQTT" : {
+    "MQTT_SERVER":   "mqtt://mqtt:1883",
+    "MQTT_USER":     "admin",
+    "MQTT_PWD":      "public",
+    "MQTT_SVC_NAME": "CoreServiceCacheConnector",
+    "TOPIC_TEMPLATE": "<EQNAME>/<CATEGORY>/<TAGNAME>",
+    "TAG_DATA_CATEGORY": "EdgeTagChange",
+    "EVENT_CATEGORY": "EdgeEvent"
+  },
+  "GraphQLSubscriber": {
+    "GRAPHQL_URL": "http://alpha:8080/graphql"
+  },
+  "influxdb" : {
+    "loggerHook" : "Influxdb",
+    "serverURL" : "http://influxdb:8086",
+    "authToken" : "mytokenmytokenmytoken",
+    "org" : "Libre",
+    "bucket" : "Libre"
+  },
+  "equipmentCache" : {
+    "MonitorChanges" : true
+  },
+  "RESTAPI": {
+    "PORT" : "28080"
+  },
+  "CORE_FXNS": {
+    "tagChangeWaitLimit": 30
+  },
+  "handleJobRequest": {
+    "defaultUoM": "N/A",
+    "defaultUoMDataType": "STRING"
+  },
+  "calendarService":{
+    "loggerHook": "calendarService",
+    "tickDuration": "60s"
+  },
+  "LibreConnectorMQTT" : {
+    "loggerHook": "LibreConnectorMQTT",
+    "MQTT_SERVER":   "mqtt://mqtt:1883",
+    "MQTT_USER":     "admin",
+    "MQTT_PWD":      "public",
+    "MQTT_SVC_NAME": "CoreServiceLibreConnector",
+    "TOPIC_TEMPLATE": "<EQNAME>/<CATEGORY>/<TAGNAME>",
+    "TAG_DATA_CATEGORY": "EdgeTagChange",
+    "EVENT_CATEGORY": "EdgeEvent"
+  },
+  "EquipmentManager" : {
+    "eqPropMeasurementName" : "EquipmentPropertyValues",
+    "messageClassToMeasurementMap": {
+      "EventLog": "eventLog",
+      "JobOrder": "jobOrder",
+      "JobRequest": "jobRequest",
+      "PerformanceLog": "runRateLog"
+    }
+  },
+  "RESTAPI": {
+    "PORT" : "28080"
+  },
+  "libreCoreService": {
+    "GRAPHQL_PORT": 4002,
+    "LIBRE_DQL_URL": "alpha:9080",
+    "LIBRE_GRAPHQL_ENDPOINT": "http://alpha:8080/graphql",
+    "EQUIPMENT_CONFIG_TOPIC": "Libre/subscriptions/equipmentConfig/#"
+  }
+}
