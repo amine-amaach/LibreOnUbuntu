@@ -31,9 +31,9 @@
     "MQTT_SVC_NAME": "libre-edge-agent-pubsub-gn"
   },
   "PlcConnectorOPCUA" : {
-    "ENDPOINT": "opc.tcp://UADEMO.prosysopc.com:53530",
-    "aliasSystem": "REMOTE-OPCUA",
-    "OVERRIDE_ENDPOINTURL": "opc.tcp://UADEMO.prosysopc.com:53530/OPCUA/SimulationServer"
+    "ENDPOINT": "opc.tcp://ioTSensorsOPCUA:46010",
+    "aliasSystem": "LOCAL",
+    "OVERRIDE_ENDPOINTURL": "opc.tcp://ioTSensorsOPCUA:46010"
   },
   "PlcConnectorMQTT" : {
     "MQTT_SERVER":   "mqtt://mqtt:1883",

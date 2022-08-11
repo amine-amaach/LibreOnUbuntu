@@ -122,26 +122,43 @@ To stop the services, run the following command :
 docker compose stop #To remove the services, replace `stop` by `down`.
 ```
  🔗 **Connecting to a server on the host machine :** : 
-  By default, the service `libre-edge-agent` is connecting to a remote OPCUA server provided by PROSYS.
- ```
+  - By default, the service `libre-edge-agent` is connecting to a local OPCUA server `ioTSensorsOPCUA` in the same network as `libre-edge-agent`.
+  
+  - To connect to a local opcua server on the host machine, change the hostname of `ENDPOINT` and `OVERRIDE_ENDPOINTURL` in the config file with `host.docker.internal` to resolve the host machine's IP address.
+
+ Config file : `LibreOnUbuntu/libre-edge-agent/config/config.json`
+
+> Server exists in the same docker network :
+
+ ```json
    "PlcConnectorOPCUA" : {
-    "ENDPOINT": "opc.tcp://UADEMO.prosysopc.com:53530",
-    "aliasSystem": "REMOTE-OPCUA",
-    "OVERRIDE_ENDPOINTURL": "opc.tcp://UADEMO.prosysopc.com:53530/OPCUA/SimulationServer"
+    "ENDPOINT": "opc.tcp://ioTSensorsOPCUA:46010",
+    "aliasSystem": "OPCUA",
+    "OVERRIDE_ENDPOINTURL": "opc.tcp://ioTSensorsOPCUA:46010"
   }
  ``` 
- Config file : `LibreOnUbuntu/libre-edge-agent/config/config.json`
  
-If you want to connect to an OPCUA server on the host machine (Kepware for example), change the host name of `ENDPOINT` and `OVERRIDE_ENDPOINTURL` in the config file to `host.docker.internal` instead of `localhost` or `127.0.0.1` :
-```
+> Server hosted on the host machine :
+
+```json
 "PlcConnectorOPCUA" : {
     "ENDPOINT": "opc.tcp://host.docker.internal:49320",
-    "aliasSystem": "LOCAL-OPCUA",
+    "aliasSystem": "OPCUA",
     "OVERRIDE_ENDPOINTURL": "opc.tcp://host.docker.internal:49320"
   }
 ```
 
+> Server exists externally (Public OPCUA server by PROSYS On the Cloud)
+
+```json
+  "PlcConnectorOPCUA" : {
+   "ENDPOINT": "opc.tcp://UADEMO.prosysopc.com:53530",
+   "aliasSystem": "OPCUA",
+   "OVERRIDE_ENDPOINTURL": "opc.tcp://UADEMO.prosysopc.com:53530/OPCUA/SimulationServer"
+ }
+```
+
 
 <span id="demo"></span>
-### 👀 Demo
+## 👀 Demo
 To see how to access these services, check out this demo on [YouTube](https://youtu.be/lmzXMiQELoo?t=275).
